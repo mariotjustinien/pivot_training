@@ -1,0 +1,36 @@
+<p>
+  todo-list works!
+</p>
+
+<div class="container">
+    <div class="jumbotron">
+        <h2> {{title}}</h2> <h3> My todo task today:</h3>
+        <ul class="todo">
+	        <li *ngFor="let todo of todolist" [class.selected]="todo === selectTodo" (click)='onSelect(todo)' >
+	        	<em><span class="id">{{todo.id}}</span></em>
+	        	<span class="name">{{todo.name}}</span>
+	        	<span class="place">{{todo.place}}</span>
+	        	<span class="time">{{todo.time}}</span>
+	        </li>
+        </ul>
+        <div *ngIf="selectTodo">
+        	<h2> {{selectTodo.name}} task details</h2>
+        	<div>
+        	<label>id: </label>{{selectTodo.id}}
+        	</div>
+  			<div>
+	    		<label>name: </label>
+	    		<input [(ngModel)]="selectTodo.name" placeholder="name"/>
+  			</div>
+  			<div>
+  				<label>place:</label>
+  				<input [(ngModel)]="selectTodo.place" placeholder="place">
+  			</div> 
+			<div>
+				<label>time:</label>
+					<input [(ngModel)]="selectTodo.time" placeholder="time">
+        </div>
+        </div>
+
+    </div>
+</div>
