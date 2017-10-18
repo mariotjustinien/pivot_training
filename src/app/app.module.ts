@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,9 +16,7 @@ import { YoutubePlayerComponent } from './youtube-player/youtube-player.componen
 @NgModule({
   declarations: [
     AppComponent,
-
     TodoListComponent,
-
     YoutubePlayerComponent,
   ],
   imports: [

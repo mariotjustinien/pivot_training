@@ -1,3 +1,4 @@
+
 import { Routes } from '@angular/router';
 
 // components
@@ -19,6 +20,7 @@ export const appRoutes: Routes = [
   {
     path : 'calculator',
     component: AppComponent // TODO : use appropriated page
+
   },
   {
     path     : '**',
