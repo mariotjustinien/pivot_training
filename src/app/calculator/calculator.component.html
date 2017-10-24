@@ -1,62 +1,67 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!-- <h2>Calculator </h2> -->
 <body>
-<!--  <button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
-    show = {{show}}
-    <br>
-     <div *ngIf="show; else elseBlock">Text to show</div>
-    <ng-template #elseBlock>Alternate text while primary text is hidden</ng-template> -->
-    <div style="margin:30px auto;max-width:400px;">
-      <table >
+
+    <div align="center" style="margin:30px auto;max-width:400px;">
+      <table width="235" >
         <thead>
-          <th style="border:none;padding:0px auto;">
-            <h1 class="title text-center" style="margin:0px auto 30px;">
-			 {{title}}
-          </h1>
+  <th style="border:none;padding:0px auto;" >
+            <h1 class="title text-center" style="margin:0px auto 30px;"> {{title}} {{version}} </h1>
 
-          <span>
-          <p>output is: {{output}}</p>
-            <p>pendingValue is : {{pendingValue}}</p>
-            <p>runningTotal is :{{runningTotal}}</p>
-            <p>operator is :{{operator}}</p>
-            <p>new number :{{newNumber}}</p>
-            <!-- <p>{{runningTotal}}{{pendingValue}}{{operator}}</p> -->
             <input #reponse type="text" value= {{runningTotal}}{{operator}}{{pendingValue}} readonly>
-          </span>
-
-          </th>
-        </thead>
+        </th></thead>
       </table>
     </div>
-    <div  style="margin:0px auto;max-width:400px;">
-      <table >
+    <div aligne="center" style="margin:0px auto;max-width:400px;">
+      <table width="368" height="315" >
         <tbody>
-          <tr><td><button  type="submit" #c value="c" (click)="clear()">c</button></td></tr>
+          <tr><td width="87"><button class="operator" type="submit" #c value="C" (click)="clear()">
+          <div align="center">C<SUP>lr</SUP></div>
+          </button></td></tr>
           <tr>
-            <td><button  type="submit" #sept (click)="OnClick(7)" value="7" >7</button></td>
-            <td><button type="submit" #huit (click)="OnClick(8)" value="8">8</button></td>
-            <td><button type="submit" #neuf (click)="OnClick(9)" value="9">9</button></td>
-            <td width="36"><button  type="submit" #fois value="*" (click)="Calculate();getOperator('*')">*</button></td>
+            <td height="57"><button  type="submit" #sept (click)="OnClick(7)" value="7" >
+            <div align="center">7</div>
+            </button></td>
+            <td width="87"><button type="submit" #huit (click)="OnClick(8)" value="8">
+            <div align="center">8</div>
+            </button></td>
+            <td width="87"><button type="submit" #neuf (click)="OnClick(9)" value="9">
+            <div align="center">9</div>
+            </button></td>
+            <td width="87"><button class="operator" type="submit" #fois value="*" (click)="Calculate();getOperator('*')">
+            <div align="center">*</div>
+            </button></td>
           </tr>
           <tr>
-            <td><button  type="submit" #quatre (click)="OnClick(4)" value="4">4</button></td>
-            <td><button  type="submit" #cinque (click)="OnClick(5)" value="5">5</button></td>
-            <td><button  type="submit" #six (click)="OnClick(6)" value="6">6</button></td>
-            <td><button  type="submit" #moin value="-" (click)="Calculate();getOperator('-')">-</button></td>
+            <td height="56"><button  type="submit" #quatre (click)="OnClick(4)" value="4">
+            <div align="center">4</div>
+            </button></td>
+            <td><button  type="submit" #cinque (click)="OnClick(5)" value="5">
+            <div align="center">5</div>
+            </button></td>
+            <td><button  type="submit" #six (click)="OnClick(6)" value="6">
+            <div align="center">6</div>
+            </button></td>
+            <td><button class="operator" type="submit" #moin value="-" (click)="Calculate();getOperator('-')">
+            <div align="center">-</div>
+            </button></td>
           </tr>
           <tr>
-            <td><button  type="submit" #un (click)="OnClick(1)" value="1" >1</button></td>
-            <td><button  type="submit" #deux (click)="OnClick(2)" value="2">2</button></td>
+            <td height="60"><button  type="submit" #un (click)="OnClick(1)" value="1" >1</button></td>
+            <td><button  type="submit" #deux (click)="OnClick(2)" value="2">
+            <div align="center">2</div>
+            </button></td>
             <td><button  type="submit" #trois (click)="OnClick(3)" value="3">3</button></td>
-            <td><button  type="submit" #add value="+" (click)="Calculate();getOperator('+')">+</button></td>
-            <td></td>
+            <td><button class="operator" type="submit" #div value="/" (click)="Calculate();getOperator('/')">/</button></td>
+
           </tr>
 
           <tr>
-            <td><button  type="submit" value="." (click)="OnClick('.')">.</button></td>
-            <td><button  type="submit" value="0" #zero (click)="OnClick(0)" >0</button></td>
-			<td><button  type="submit" (click)="Calculate()">=</button> </td>
-            <td><button  type="submit" #div value="/" (click)="Calculate();getOperator('/')">/</button></td>
+            <td height="53"><button  type="submit" value="." (click)="OnClick('.')">.</button></td>
+            <td><button  type="submit" value="0" #zero (click)="OnClick(0)" >
+            <div align="center">0</div>
+            </button></td>
+			<td><button class="equal" type="submit" (click)="Calculate()">=</button> </td>
+
+            <td><button class="operator"  type="submit" #add value="+" (click)="Calculate();getOperator('+')">+</button></td>
           </tr>
         </tbody>
       </table>

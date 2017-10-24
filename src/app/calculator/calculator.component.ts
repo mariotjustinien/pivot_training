@@ -9,7 +9,8 @@ import {CalculatorService} from './calculator.service';
 })
 
 export class CalculatorComponent {
-
+  title= 'Angular Calculator';
+  version= 'v 1.0';
   output = null;
   operator: string;
   pendingValue = null;
