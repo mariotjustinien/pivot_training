@@ -19,7 +19,7 @@ export class CalculatorComponent {
 
  constructor(private calculatorService: CalculatorService) { }
 
- OnClick(value) {
+ OnClick(value): void {
     if(this.pendingValue==null || this.newNumber){
     this.output = value;
     this.newNumber = false;
@@ -33,7 +33,7 @@ export class CalculatorComponent {
   this.pendingValue = this.calculatorService.toNumber(this.output);
 }
 
-  getOperator(op : string){
+  getOperator(op : string) : void{
     if (this.runningTotal==null){
       this.operator = op;
       this.newNumber=true;
@@ -43,16 +43,16 @@ export class CalculatorComponent {
     }else{
       this.operator = op;
       this.newNumber=true;
-      this.pendingValue = null; 
+      this.pendingValue = null;
     }
   }
 
-  setOutput(outputString) {
+  setOutput(outputString) : void{
       this.output = outputString;
       this.runningTotal =  this.pendingValue;
     };
 
-clear(){
+clear() : void{
   this.output = null;
   this.operator = null;
   this.pendingValue = null;
@@ -60,7 +60,7 @@ clear(){
   this.newNumber = true;
 }
 
-  Calculate() {
+  Calculate() : void{
     var opert=this.operator;
     switch (opert) {
          case('+'):
