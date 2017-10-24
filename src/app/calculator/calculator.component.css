@@ -60,6 +60,10 @@ font-family: sans-serif;
 font-size:60px;
 text-shadow:0px 0px 1px grey;
 color:black;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+border: 0;
+outline: 0;
+padding: 22px 18px;
 }
 
 button:disabled {
