@@ -43,7 +43,7 @@ export class CalculatorComponent {
     }else{
       this.operator = op;
       this.newNumber=true;
-      this.pendingValue = null;
+      this.pendingValue = null; 
     }
   }
 

@@ -6,7 +6,7 @@ h1 {
   font-size: 250%;
 }
 h2, h3 {
-  color: #444;
+  color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
@@ -15,7 +15,7 @@ body {
 }
 button {
   height:80px;
-  width: 80px;
+  width: 100px;
   font-family: Arial;
   font-size:30px;
   background-color: whitesmoke;
@@ -43,6 +43,15 @@ background-color: #f2597f;
 color: white;
 }
 
+.clear{
+  background-color: #00cc21;
+  color: white;
+}
+.clear:hover {
+background-color: #34ed52;
+color: white;
+}
+
 button:hover {
   background-color: #cfd8dc;
 }
@@ -54,7 +63,7 @@ button:checked {
 
 input {
 height: 50px;
-width: 370px;
+width: 380px;
 background-color:whitesmoke;
 font-family: sans-serif;
 font-size:60px;
