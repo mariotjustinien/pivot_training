@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CalculatorService} from './calculator.service';
 
 @Component({
@@ -9,95 +9,101 @@ import {CalculatorService} from './calculator.service';
 })
 
 export class CalculatorComponent {
+//Declaration des variables
   title= 'Angular Calculator';
   version= 'v 1.0';
   output = null;
   operator: string;
-  pendingValue = null;
-  runningTotal = null;
-  newNumber = true;
+  Value:number;
+  Ans:number;
+  newNumber:boolean;
 
  constructor(private calculatorService: CalculatorService) { }
 
+ setOutput(outputString) : void{
+       this.output = outputString;
+       this.Ans =  this.Value;
+     };
+
+//Fonction pour reinitialiser la calculatrice
+ clear() : void{
+   this.output = null;
+   this.operator = null;
+   this.Value = null;
+   this.Ans = null;
+   this.newNumber = true;
+ }
+
+//Fonction pour faire les differents calcul avec les operateurs arithmetique definie
+Calculate() : void{
+     var opert=this.operator;
+     switch (opert) {
+          case('+'):
+             this.Ans +=  this.Value;
+             this.setOutput(String(this.Ans));
+             this.Ans = this.calculatorService.toNumber(this.output);
+             this.Value=null;
+             this.operator=null;
+           break;
+          case('-'):
+             this.Ans -=  this.Value;
+             this.setOutput(String(this.Ans));
+             this.Ans = this.calculatorService.toNumber(this.output);
+             this.Value=null;
+             this.operator=null;
+           break;
+          case('*'):
+            this.Ans *=  this.Value;
+            this.setOutput(String(this.Ans));
+            this.Ans = this.calculatorService.toNumber(this.output);
+            this.Value=null;
+            this.operator=null;
+           break;
+          case('/'):
+            this.Ans /=  this.Value;
+            this.setOutput(String(this.Ans));
+            this.Ans = this.calculatorService.toNumber(this.output);
+            this.Value=null;
+            this.operator=null;
+           break;
+           case('='):
+           this.operator = null;
+           this.newNumber = true;
+           this.setOutput(String(this.Ans));
+           this.Value = null;
+           this.Ans = this.calculatorService.toNumber(this.output);
+           break;
+         }
+       }
+
+//Fonction pour recuperer les valeurs numerique
 OnClick(value): void {
-    if(this.pendingValue==null || this.newNumber){
+    if(this.Value==null || this.newNumber){
     this.output = value;
     this.newNumber = false;
-
   }
   else if (value == "." && this.output.toString().indexOf(".") !== -1) {
   }
   else{
           this.output += String(value);
   }
-  this.pendingValue = this.calculatorService.toNumber(this.output);
+  this.Value = this.calculatorService.toNumber(this.output);
+
 }
 
+//Fonction pour recuperer l'operateur arithmetique
 getOperator(op : string) : void{
-    if (this.runningTotal==null){
+    if (this.Ans==null){
       this.operator = op;
       this.newNumber=true;
-      this.runningTotal = this.pendingValue;
-      this.pendingValue = null;
+      this.Ans = this.Value;
+      this.Value = null;
 
     }else{
       this.operator = op;
       this.newNumber=true;
-      this.pendingValue = null;
+      this.Value = null;
     }
   }
 
-setOutput(outputString) : void{
-      this.output = outputString;
-      this.runningTotal =  this.pendingValue;
-    };
-
-clear() : void{
-  this.output = null;
-  this.operator = null;
-  this.pendingValue = null;
-  this.runningTotal = null;
-  this.newNumber = true;
-}
-
-Calculate() : void{
-    var opert=this.operator;
-    switch (opert) {
-         case('+'):
-            this.runningTotal +=  this.pendingValue;
-            this.setOutput(String(this.runningTotal));
-            this.runningTotal = this.calculatorService.toNumber(this.output);
-            this.pendingValue=null;
-            this.operator=null;
-          break;
-         case('-'):
-            this.runningTotal -=  this.pendingValue;
-            this.setOutput(String(this.runningTotal));
-            this.runningTotal = this.calculatorService.toNumber(this.output);
-            this.pendingValue=null;
-            this.operator=null;
-          break;
-         case('*'):
-           this.runningTotal *=  this.pendingValue;
-           this.setOutput(String(this.runningTotal));
-           this.runningTotal = this.calculatorService.toNumber(this.output);
-           this.pendingValue=null;
-           this.operator=null;
-          break;
-         case('/'):
-           this.runningTotal /=  this.pendingValue;
-           this.setOutput(String(this.runningTotal));
-           this.runningTotal = this.calculatorService.toNumber(this.output);
-           this.pendingValue=null;
-           this.operator=null;
-          break;
-          case('='):
-          this.operator = null;
-          this.newNumber = true;
-          this.setOutput(String(this.runningTotal));
-          this.pendingValue = null;
-          this.runningTotal = this.calculatorService.toNumber(this.output);
-          break;
-        }
-      }
 }

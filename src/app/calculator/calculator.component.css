@@ -24,6 +24,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 }
 
 .operator {
@@ -55,10 +56,10 @@ color: white;
 button:hover {
   background-color: #cfd8dc;
 }
-button:checked {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
+button:active {
+  color: white;
+  background-color: #707377;
+  left: .10em;
 }
 
 input {
