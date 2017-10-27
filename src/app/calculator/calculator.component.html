@@ -1,0 +1,66 @@
+<body>
+
+    <div align="center" style="margin:0px auto;max-width:400px;">
+      <table width="100" >
+        <thead>
+        <th width="211" style="border:none;padding:0px auto;" >
+            <h2 class="title text-center" style="margin:0px auto 30px;"> {{title}} </h2><h3><p>{{version}}</h3>
+            <input type="text" value= {{Ans}}{{operator}}{{Value}} readonly>
+      </th>
+    </thead>
+      </table>
+    </div>
+    <div aligne="center" style="margin:0px auto;max-width:400px;">
+      <table width="420" height="315" >
+        <tbody>
+          <tr><td width="100"><button class="clear" type="submit" (click)="clear()">
+          <div align="center">C<SUP>lr</SUP></div>
+          </button></td></tr>
+          <tr>
+            <td height="57"><button  type="submit" (click)="OnClick(7)" >
+            <div align="center">7</div>
+            </button></td>
+            <td width="100"><button type="submit" (click)="OnClick(8)" >
+            <div align="center">8</div>
+            </button></td>
+            <td width="100"><button type="submit" (click)="OnClick(9)" >
+            <div align="center">9</div>
+            </button></td>
+            <td width="100"><button class="operator" type="submit" (click)="Calculate();getOperator('*')">
+            <div align="center">x</div>
+            </button></td>
+          </tr>
+          <tr>
+            <td height="56"><button  type="submit" (click)="OnClick(4)" >
+            <div align="center">4</div>
+            </button></td>
+            <td><button  type="submit" (click)="OnClick(5)" >
+            <div align="center">5</div>
+            </button></td>
+            <td><button  type="submit" (click)="OnClick(6)" >
+            <div align="center">6</div>
+            </button></td>
+            <td><button class="operator" type="submit" (click)="Calculate();getOperator('-')">
+            <div align="center">-</div>
+            </button></td>
+          </tr>
+          <tr>
+            <td height="60"><button  type="submit" (click)="OnClick(1)" >1</button></td>
+            <td><button  type="submit" #deux (click)="OnClick(2)" >
+            <div align="center">2</div>
+            </button></td>
+            <td><button  type="submit" #trois (click)="OnClick(3)" >3</button></td>
+            <td><button class="operator" type="submit" (click)="Calculate();getOperator('/')">/</button></td>
+          </tr>
+
+          <tr>
+            <td height="53"><button  type="submit" (click)="OnClick('.')">.</button></td>
+            <td><button  type="submit" (click)="OnClick(0)" ><div align="center">0</div></button></td>
+            <td><button class="equal" type="submit" (click)="Calculate()">=</button> </td>
+            <td><button class="operator"  type="submit" (click)="Calculate();getOperator('+')">+</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+</body>
