@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
 
+
 // Definition of routes
 export const appRoutes: Routes = [
   {
@@ -23,7 +24,7 @@ export const appRoutes: Routes = [
 
   },
   {
-    path     : '**',
+    path     : ' ',
     redirectTo: '',
   }
 
