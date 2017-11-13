@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 // routing
 import { appRoutes } from './app.routing';
-import {todoRoutes} from './todo-list/todo.routing';
+import {todoRoutes} from './todo-list/todo.routing'
 // components
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -15,6 +15,7 @@ import {TodoListService} from './todo-list/todo-list.service';
 import {TaskDashboardComponent} from './todo-list/task-dashboard.component';
 import {TaskListComponent} from './todo-list/task-list.component';
 import { HttpModule } from '@angular/http';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
