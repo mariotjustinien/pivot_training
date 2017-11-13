@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {CalculatorService} from './calculator.service';
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css'],
-  providers: [CalculatorService]
 })
 
 export class CalculatorComponent {
@@ -17,8 +15,6 @@ export class CalculatorComponent {
   Value:number;
   Ans:number;
   newNumber:boolean;
-
- constructor(private calculatorService: CalculatorService) { }
 
  setOutput(outputString) : void{
        this.output = outputString;
@@ -35,43 +31,36 @@ export class CalculatorComponent {
  }
 
 //Fonction pour faire les differents calcul avec les operateurs arithmetique definie
-Calculate() : void{
+Calculate() : void {
      var opert=this.operator;
      switch (opert) {
           case('+'):
              this.Ans +=  this.Value;
              this.setOutput(String(this.Ans));
-             this.Ans = this.calculatorService.toNumber(this.output);
+             this.Ans = parseFloat(this.output);
              this.Value=null;
              this.operator=null;
            break;
           case('-'):
              this.Ans -=  this.Value;
              this.setOutput(String(this.Ans));
-             this.Ans = this.calculatorService.toNumber(this.output);
+             this.Ans = parseFloat(this.output);
              this.Value=null;
              this.operator=null;
            break;
           case('*'):
             this.Ans *=  this.Value;
             this.setOutput(String(this.Ans));
-            this.Ans = this.calculatorService.toNumber(this.output);
+            this.Ans = parseFloat(this.output);
             this.Value=null;
             this.operator=null;
            break;
           case('/'):
             this.Ans /=  this.Value;
             this.setOutput(String(this.Ans));
-            this.Ans = this.calculatorService.toNumber(this.output);
+            this.Ans = parseFloat(this.output);
             this.Value=null;
             this.operator=null;
-           break;
-           case('='):
-           this.operator = null;
-           this.newNumber = true;
-           this.setOutput(String(this.Ans));
-           this.Value = null;
-           this.Ans = this.calculatorService.toNumber(this.output);
            break;
          }
        }
@@ -87,23 +76,17 @@ OnClick(value): void {
   else{
           this.output += String(value);
   }
-  this.Value = this.calculatorService.toNumber(this.output);
-
+  this.Value = parseFloat(this.output);
 }
 
 //Fonction pour recuperer l'operateur arithmetique
 getOperator(op : string) : void{
-    if (this.Ans==null){
-      this.operator = op;
-      this.newNumber=true;
-      this.Ans = this.Value;
-      this.Value = null;
-
-    }else{
-      this.operator = op;
-      this.newNumber=true;
-      this.Value = null;
-    }
+if (this.Ans==null){
+    this.Ans = this.Value;
+}
+this.operator = op;
+this.newNumber=true;
+this.Value = null;
   }
 
 }
