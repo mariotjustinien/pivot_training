@@ -1,25 +1,13 @@
-import { TODO } from './mock-todo';
-import { Todo } from './todo';
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css'],
+  // providers: [ TodoListService]
+
 })
-export class TodoListComponent implements OnInit {
+
+export class TodoListComponent {
   title = 'Todo list';
-  todolist = TODO;
-  selectTodo: Todo;
-
-  onSelect(todo: Todo): void {
-    this.selectTodo = todo;
-  }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
