@@ -6,11 +6,11 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 // routing
 import { appRoutes } from './app.routing';
 
-
 // components
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import { YoutubePlayerComponent } from './youtube-player/youtube-player.componen
     AppComponent,
     TodoListComponent,
     YoutubePlayerComponent,
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,
