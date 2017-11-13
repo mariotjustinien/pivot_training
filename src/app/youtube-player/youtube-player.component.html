@@ -1,8 +1,34 @@
 
+<h2>
+   Angular Youtube player.</h2>
 
-<div align="center">
-  <h2>
-    youtube-player works!
-  </h2>
-<h3>Content</h3>
-</div>
+<table width="1293" height="155" border="0">
+  <tr>
+    <td width="447"><div>
+   <h3>Video</h3>
+   <h4>Video url</h4>
+     <input class="videoAdd" #url />
+   <h4>Video title</h4>
+     <input class="videoAdd" #title />
+<br>
+     <button class="show" (click)="addVideo(url.value,title.value); showVideo(url.value);url.value=''; title.value=''">
+    show  </button>
+</div></td>
+    <td width="345"><video-detail [video]="selectedVideo"></video-detail></td>
+    <td width="487" rowspan="2"><div class="grid grid-pad" style="overflow-y: scroll; height:650px;">
+    <a *ngFor="let video of videos" class="col-1-4" [class.selected]="video === selectedVideo" (click)="showVideo(video.url);onSelect(video)">
+       <!--<span class="badge">{{video.id}}</span> {{video.url}}-->
+       <div class="module video">
+        <h4>{{video.videoTitle}}</h4>
+        <button class="delete-from-playlist" (click)="deleteVideo(video)">x</button>      </div>
+    </a>
+</div></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div >
+    <div >
+      <div id="ytb-player"></div>
+    </div>
+</div></td>
+  </tr>
+</table>
