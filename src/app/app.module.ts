@@ -11,10 +11,13 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
 import { TodoListDetailComponent } from './todo-list/todo-list-detail.component';
-import {TodoListService} from './todo-list/todo-list.service';
 import {TaskDashboardComponent} from './todo-list/task-dashboard.component';
 import {TaskListComponent} from './todo-list/task-list.component';
 import { HttpModule } from '@angular/http';
+
+// service
+import {TodoListService} from './todo-list/todo-list.service';
+import { YoutubePlayerService } from './youtube-player/youtube-player.service';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -37,7 +40,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
-  providers: [TodoListService],
+  providers: [TodoListService, YoutubePlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

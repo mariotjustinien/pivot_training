@@ -1,4 +1,5 @@
-<table>
+<h2>My To Do List</h2>
+<table class="corp">
   <tr>
     <td><label>Task name:</label> </td>
     <td><input #TodoName /><br/></td>
@@ -12,8 +13,9 @@
     <td><input #TodoTiming /><br/></td>
   </tr>
   <tr>
+    <td></td>
     <td>
-      <button (click)="add(TodoName.value,TodoAdress.value,TodoTiming.value); TodoName.value='';TodoAdress.value='';TodoTiming.value=''">
+      <button class="addBtn" (click)="add(TodoName.value,TodoAdress.value,TodoTiming.value); TodoName.value='';TodoAdress.value='';TodoTiming.value=''">
       Add
       </button>
     </td>
@@ -24,19 +26,40 @@
   <div class="jumbotron">
     <ul class="todo">
       <li *ngFor="let todo of todolist" [class.selected]="todo === selectTodo" (click)='onSelect(todo)' >
-        <em><span class="id">{{todo.id}}</span></em>
+          <table width="25em">
+              <tr>
+                  <td>
+                    <em><span class="id">{{todo.id}}</span></em>
+                  </td>
+                  <td>
+                    <span class="name">{{todo.name}}</span>
+                  </td>
+                  <td>
+                    <span class="place">{{todo.place}}</span>
+                  </td>
+                  <td>
+                    <span class="time">{{todo.time}}</span>
+                  </td>
+                  <td>
+                    <button class="close"
+                            (click)="deleteTodo(todo); $event.stopPropagation()">x</button>
+                  </td>
+              </tr>
+          </table>
+
+        <!-- <em><span class="id">{{todo.id}}</span></em>
         <span class="name">{{todo.name}}</span>
         <span class="place">{{todo.place}}</span>
         <span class="time">{{todo.time}}</span>
-        <button class="delete"
+        <button class="close"
                 (click)="deleteTodo(todo); $event.stopPropagation()">x</button>
-      </li>
+      </li> -->
     </ul>
 <div *ngIf="selectTodo">
-    <h2>
+    <h3>
       {{ selectTodo.name |uppercase}} is my today task to do
-    </h2>
-  <button (click)="gotoDetail()"> More Details</button>
+    </h3>
+  <button style="margin-left: 10em; background:red;" (click)="gotoDetail()"> More Details</button>
 </div>
   </div>
 </div>

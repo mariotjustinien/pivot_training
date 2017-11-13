@@ -24,5 +24,5 @@ export const todoRoutes: Routes = [
     pathMatch: 'full',
   }
 
-]
+];
 

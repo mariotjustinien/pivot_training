@@ -51,4 +51,6 @@ export class TaskListComponent implements OnInit {
         if (this.selectTodo === todo) { this.selectTodo = null; }
       });
   }
+  deleteTodoall(): void {
+  }
 }

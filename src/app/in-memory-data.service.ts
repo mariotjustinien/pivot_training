@@ -16,6 +16,10 @@ export class InMemoryDataService implements InMemoryDbService {
        {id: 11, name: 'swimming', place: 'pool', time : '05:30'},
        {id: 12, name: 'drinking', place: 'bar', time : '20:00'},
     ];
-    return {todolist};
+     const videos = [
+       {id: 1, url : 'https://www.youtube.com/watch?v=2Vv-BfVoq4g', videoId: '2Vv-BfVoq4g'},
+       {id: 2 , url: 'https://www.youtube.com/watch?v=E7q_wbbwGyU', videoId: 'E7q_wbbwGyU'},
+     ];
+    return { todolist, videos};
   }
 }
