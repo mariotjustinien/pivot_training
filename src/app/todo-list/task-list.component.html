@@ -22,7 +22,7 @@
   </tr>
 </table>
 
-<div class="container">
+<div class="container" style='overflow-y:auto;overflow-x: auto; width:800px;height:400px;'>
   <div class="jumbotron">
     <ul class="todo">
       <li *ngFor="let todo of todolist" [class.selected]="todo === selectTodo" (click)='onSelect(todo)' >
@@ -47,15 +47,9 @@
               </tr>
           </table>
 
-        <!-- <em><span class="id">{{todo.id}}</span></em>
-        <span class="name">{{todo.name}}</span>
-        <span class="place">{{todo.place}}</span>
-        <span class="time">{{todo.time}}</span>
-        <button class="close"
-                (click)="deleteTodo(todo); $event.stopPropagation()">x</button>
-      </li> -->
+
     </ul>
-<div *ngIf="selectTodo">
+<div *ngIf="selectTodo" class="select">
     <h3>
       {{ selectTodo.name |uppercase}} is my today task to do
     </h3>

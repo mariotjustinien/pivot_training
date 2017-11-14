@@ -1,13 +1,24 @@
-<div class="container">
+<table class="content" width="1000" border="0">
+  <tr>
+    <td align="left"
+        valign="top" width="212" height="232"><div class="container">
     <div class="jumbotron">
-         <h1>Menu</h1> 
+         <h1>Menu</h1>
         <em>Feel free to use Bootstrap or anything else to improve the rendering</em>
-       
+
     </div>
     <ul>
         <li routerLink="/player" style="cursor:pointer">Player</li>
         <li routerLink="/todolist" style="cursor:pointer">Todo List</li>
-        <li routerLink="TODO" style="cursor:pointer">Calculator</li>
+        <li routerLink="/calculator" style="cursor:pointer">Calculator</li>
     </ul>
-</div>
-<router-outlet></router-outlet>
+</div></td>
+    <td width="781" align="left"
+        valign="top" rowspan="2">
+        <router-outlet></router-outlet>
+    </td>
+  </tr>
+  <tr>
+    <td height="200">&nbsp;</td>
+  </tr>
+</table>

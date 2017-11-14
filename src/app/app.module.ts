@@ -14,6 +14,7 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail.component'
 import {TaskDashboardComponent} from './todo-list/task-dashboard.component';
 import {TaskListComponent} from './todo-list/task-list.component';
 import { HttpModule } from '@angular/http';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 // service
 import {TodoListService} from './todo-list/todo-list.service';
@@ -31,6 +32,7 @@ import { InMemoryDataService } from './in-memory-data.service';
     TodoListDetailComponent,
     TaskDashboardComponent,
     TaskListComponent,
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,
