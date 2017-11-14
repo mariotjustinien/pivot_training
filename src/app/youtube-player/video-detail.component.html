@@ -1,0 +1,13 @@
+<div *ngIf="video">
+  <h3>Video Detail/edit</h3>
+  <div>
+    <label><h4>Title:</h4>
+      <input class="VideoDetail" [(ngModel)]="video.videoTitle" placeholder="name"/>
+    </label>
+    <label><h4>Url:</h4>
+      <input class="VideoDetail" [(ngModel)]="video.url" placeholder="name"/>
+    </label>
+    <br>
+    <button class="save" (click)="save()">save</button>
+  </div>
+</div>

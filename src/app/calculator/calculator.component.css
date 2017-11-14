@@ -13,19 +13,6 @@ h2, h3 {
 body {
   margin: 2em;
 }
-button {
-  height:80px;
-  width: 100px;
-  font-family: Arial;
-  font-size:30px;
-  background-color: whitesmoke;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
-}
 
 .operator {
 background-color: dodgerblue;
@@ -60,6 +47,20 @@ button:active {
   color: white;
   background-color: #707377;
   left: .10em;
+}
+
+button {
+  height:80px;
+  width: 100px;
+  font-family: Arial;
+  font-size:30px;
+  background-color: whitesmoke;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 }
 
 input {
