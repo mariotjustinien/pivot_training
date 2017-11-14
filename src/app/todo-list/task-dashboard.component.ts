@@ -12,7 +12,9 @@ export class TaskDashboardComponent implements OnInit {
   constructor (private todolistService: TodoListService) { }
 
   ngOnInit(): void {
-    this.todolistService.getTodoList().then(todolist => this.todolist = todolist.slice(1.5));
+    this.getTodoList();
+  }
+  getTodoList(): void {
+    this.todolistService.getTodoList().then(todolist => this.todolist = todolist.slice(1.2));
   }
 }
-

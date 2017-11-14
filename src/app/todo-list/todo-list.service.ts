@@ -4,12 +4,20 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Todo } from './todo';
+import {Observable} from 'rxjs/Observable';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class TodoListService {
  private todolistURl= 'api/todolist';
+ todolist: Observable<Todo[]> ;
+ private dataStore: {
+      todolist: Todo[]
+  }
 
- constructor (private http: Http) {}
+ constructor (private http: Http) {
+   this.dataStore = { todolist: []};
+ }
  private headers = new Headers({'Content-Type': 'application/json'});
 
   getTodoList(): Promise<Todo[]> {
@@ -62,7 +70,6 @@ export class TodoListService {
       .then(() => null)
       .catch(this.handleError);
   }
-
 
 }
 
