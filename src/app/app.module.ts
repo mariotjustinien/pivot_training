@@ -4,8 +4,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule }    from '@angular/common/http'; // <-- NgModel lives here
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './youtube-player/in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 // routing
 import { appRoutes } from './app.routing';
@@ -26,8 +25,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { TodoListService } from './todo-list/todo-list.service';
 import { YoutubePlayerService } from './youtube-player/youtube-player.service';
 
-// Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+// // Imports for loading & configuring the in-memory web api
+ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
@@ -39,17 +38,19 @@ import { InMemoryDataService } from './in-memory-data.service';
     TodoListDetailComponent,
     TaskDashboardComponent,
     TaskListComponent,
-
     CalculatorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(todoRoutes),
+    HttpModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-    InMemoryDataService, { dataEncapsulation: false }
-    )
+    // HttpClientInMemoryWebApiModule.forRoot(
+    // InMemoryDataService, { dataEncapsulation: false }
+    // ),
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
 
   providers: [TodoListService, YoutubePlayerService],
