@@ -1,48 +1,59 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
-
 import { Video } from './video';
 
+let _window: any = window;
+const httpOptions = {headers : new HttpHeaders({'Content-Type': 'application/json'})};
 
 @Injectable()
 export class YoutubePlayerService {
+	public yt_player;
+	private videosUrl = 'api/videos';  // URL to web api
+	private currentVideoId: string;
 
+	 constructor(private http: HttpClient) { }
 
-  private headers = new Headers({'Content-Type': 'application/json'});
-  private videosUrl = 'api/videos';  // URL to web api
+	 createPlayer(): void {
+	     let interval = setInterval(() => {
+	       if ((typeof _window.YT !== 'undefined') && _window.YT && _window.YT.Player) {
+	         this.yt_player = new _window.YT.Player('ytb-player', {
+	           width: '800',
+	           height: '400',
+						 //videoId: videoId,
+	           playerVars: {
+	             iv_load_policy: '3',
+	             rel: '0'
+	           }
+	         });
+	         clearInterval(interval);
+	       }
+	     }, 100);
+	   }
 
-  constructor(private http: Http) { }
+	playVideo(videoId: string): void {
+	     this.yt_player.loadVideoById(videoId);
+	     this.currentVideoId = videoId;
+	   }
 
-  getVideos(): Promise<Video[]> {
-    return this.http.get(this.videosUrl)
-      .toPromise()
-      .then(response => response.json().data as Video[])
-      .catch(this.handleError);
+  getVideos(): Observable<Video[]> {
+    return this.http.get<Video[]>(this.videosUrl);
   }
 
+	addVideo (video: Video): Observable<Video>{
+		return this.http.post<Video>(this.videosUrl, video, httpOptions);
+	}
 
-  create(url: string, videoId: string): Promise<Video> {
-    return this.http
-      .post(this.videosUrl, JSON.stringify({url: url, videoId: videoId} ), {headers: this.headers})
-      .toPromise()
-      .then(res => res.json().data as Video)
-      .catch(this.handleError);
-  }
+	updateVideo (video: Video): Observable<any>{
+	  return this.http.put(this.videosUrl, video, httpOptions);
+	}
 
-  getVideo(id: number): Promise<Video> {
-
-    const url =  '${this.videosUrl}/${id}';
-    return this.http.get(url)
-      .toPromise()
-      .then(response => response.json().data as Video)
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
-  }
+	deleteVideo (video: Video | number): Observable<Video>{
+		const id = typeof video === 'number' ? video : video.id;
+		const url = `${this.videosUrl}/${id}`;
+		return this.http.delete<Video>(url, httpOptions);
+	}
 
 }

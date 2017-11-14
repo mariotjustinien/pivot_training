@@ -1,9 +1,7 @@
-import { Video } from './video';
-import { YoutubePlayerService } from './youtube-player.service';
-import { Component, OnInit } from '@angular/core';
-import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 
+import { Component, OnInit, Input } from '@angular/core';
+import {Video} from './video';
+import {YoutubePlayerService} from './youtube-player.service';
 
 @Component({
   selector: 'app-youtube-player',
@@ -11,45 +9,45 @@ import { Router } from '@angular/router';
   styleUrls: ['./youtube-player.component.css']
 })
 export class YoutubePlayerComponent implements OnInit {
-  baseUrl = 'https://www.youtube.com/embed/';
-  url: SafeResourceUrl;
+  id: string;
+  title:string;
   videos: Video[];
-  selectVideo: Video;
-  lst: string;
-  video: Video;
-  test: any = {videoId: 'HX0ZoKn4BW4'};
-
-  constructor(
-    private videoService: YoutubePlayerService,
-    private router: Router ,
-    private sanitizer: DomSanitizer,
-  ) { }
-
-  onSelect(video: Video): void {
-    this.selectVideo = video;
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this.selectVideo.videoId);
-    console.log(this.url);
-  }
+  selectedVideo: Video;
+  ytUrl = "https://www.youtube.com/watch?v=";
+  constructor( private youtubeplayerservice: YoutubePlayerService ) { }
 
   ngOnInit() {
-    this.getVideos() ;
+    let doc = window.document;
+    let playerApi = doc.createElement('script');
+    playerApi.type = 'text/javascript';
+    playerApi.src = 'https://www.youtube.com/iframe_api';
+    doc.body.appendChild(playerApi);
+    this.youtubeplayerservice.createPlayer();
+    this.getVideos();
   }
 
-  getVideos(): void {
-    this.videoService.getVideos().then(videos => this.videos = videos);
-  }
-  show(youtubeUrl: string): void {
-    youtubeUrl = youtubeUrl.trim() ;
-    if ( !youtubeUrl) { return; }
-    this.lst = (youtubeUrl.split('/')[3]).split('=')[1];
-    this.add(youtubeUrl, this.lst);
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this.selectVideo.videoId);
-  }
+onSelect(video: Video): void {
+      this.selectedVideo = video;
+    }
 
-  add(youtubeUrl: string, videoId: string): void {
-    this.videoService.create(youtubeUrl, this.lst )
-      .then(video => {
-        this.videos.push(video);
-        this.selectVideo = video; });
-  }
+showVideo(url:string): void{
+    this.id= url.replace(this.ytUrl,"");
+    this.youtubeplayerservice.playVideo(this.id);
+}
+
+getVideos(): void {
+  this.youtubeplayerservice.getVideos().subscribe(videos => this.videos = videos);
+}
+
+addVideo(url,videoTitle: string): void {
+  url = url.trim();
+  if(!url) {return;}
+  this.youtubeplayerservice.addVideo({url,videoTitle} as Video).subscribe(video => this.videos.push(video));
+  this.getVideos();
+}
+
+deleteVideo(video: Video): void {
+  this.videos = this.videos.filter(h => h !== video);
+  this.youtubeplayerservice.deleteVideo(video).subscribe;
+}
 }
