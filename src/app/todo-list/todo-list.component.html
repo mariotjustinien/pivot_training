@@ -1,15 +1,9 @@
-<p>
-  todo-list works!
-</p>
-
-<div class="container">
-    <div class="jumbotron">
-
-         <nav>
-           <a routerLink="/TaskDashboard" >Task Priority</a>
-           <a routerLink="/TaskList" > Task List </a>
-         </nav>
-<app-task-dashboard></app-task-dashboard>
-    </div>
+<div >
+  <ul>
+    <li><a routerLink="/TaskDashboard" >Task Priority</a></li>
+    <li><a routerLink="/TaskList" > Task List </a></li>
+  </ul>
+  <app-task-dashboard></app-task-dashboard>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+

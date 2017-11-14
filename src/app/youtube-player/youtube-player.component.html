@@ -1,3 +1,25 @@
-<h2>
-  youtube-player works!
-</h2>
+<p>
+  historique works!
+</p>
+<div class="container">
+  <div class="jumbotron">
+    <ul class="historiquelist">
+      <li *ngFor="let video of videos" [class.selected]="video === selectVideo" (click)='onSelect(video)' >
+        <a routerLink='/player/{{video.id}}'> <em><span class="id">{{video.id}}</span></em>
+          <span class="name">{{video.url}}</span>
+          <span class="place">{{video.videoId}}</span>
+        </a>
+        <button class="delete" (click)="deleteVideo(video); $event.stopPropagation()">x</button>
+      </li>
+    </ul>
+  </div>
+    <div *ngIf="selectVideo" class="video">
+      <h2>
+        {{ selectVideo.url |uppercase}}
+      </h2>
+      <iframe id="player" width="500" height="360"
+              [src]="url"
+              frameborder="0">
+      </iframe>
+    </div>
+  </div>
