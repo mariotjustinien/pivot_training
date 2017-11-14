@@ -1,0 +1,42 @@
+<table>
+  <tr>
+    <td><label>Task name:</label> </td>
+    <td><input #TodoName /><br/></td>
+  </tr>
+  <tr>
+    <td> <label>Address:</label></td>
+    <td>  <input #TodoAdress /><br/></td>
+  </tr>
+  <tr>
+    <td><label>Time:</label></td>
+    <td><input #TodoTiming /><br/></td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="add(TodoName.value,TodoAdress.value,TodoTiming.value); TodoName.value='';TodoAdress.value='';TodoTiming.value=''">
+      Add
+      </button>
+    </td>
+  </tr>
+</table>
+
+<div class="container">
+  <div class="jumbotron">
+    <ul class="todo">
+      <li *ngFor="let todo of todolist" [class.selected]="todo === selectTodo" (click)='onSelect(todo)' >
+        <em><span class="id">{{todo.id}}</span></em>
+        <span class="name">{{todo.name}}</span>
+        <span class="place">{{todo.place}}</span>
+        <span class="time">{{todo.time}}</span>
+        <button class="delete"
+                (click)="deleteTodo(todo); $event.stopPropagation()">x</button>
+      </li>
+    </ul>
+<div *ngIf="selectTodo">
+    <h2>
+      {{ selectTodo.name |uppercase}} is my today task to do
+    </h2>
+  <button (click)="gotoDetail()"> More Details</button>
+</div>
+  </div>
+</div>

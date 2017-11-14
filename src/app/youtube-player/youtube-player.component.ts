@@ -10,7 +10,6 @@ import {YoutubePlayerService} from './youtube-player.service';
 export class YoutubePlayerComponent implements OnInit {
   id: string;
   title:string;
-  @Input() videoPlaylist;
   videos: Video[];
   selectedVideo: Video;
   ytUrl = "https://www.youtube.com/watch?v=";
