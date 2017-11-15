@@ -5,28 +5,20 @@ import { FormsModule }    from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule }    from '@angular/common/http'; // <-- NgModel lives here
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { InMemoryDataService }  from './youtube-player/in-memory-data.service';
 
 // routing
 import { appRoutes } from './app.routing';
-import { TodoRoutingModule } from './todo-list/todo-routing.module';
-
-import { AppRoutingModule } from './app.routing';
 
 //services
 import {YoutubePlayerService} from './youtube-player/youtube-player.service';
-import { TodoListService } from './todo-list/todo-list.service';
+
 // components
 import { AppComponent } from './app.component';
-
 import { TodoListComponent } from './todo-list/todo-list.component';
-
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
-import { VideoDetailComponent } from './youtube-player/video-detail/video-detail.component';
+import { VideoDetailComponent } from './youtube-player/video-detail.component';
 import { CalculatorComponent } from './calculator/calculator.component';
-import { TaskDashboardComponent } from './todo-list/task-dashboard/task-dashboard.component';
-import { TaskListComponent } from './todo-list/task-list/task-list.component';
-import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,23 +26,18 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     TodoListComponent,
     YoutubePlayerComponent,
     VideoDetailComponent,
-    CalculatorComponent,
-    TaskDashboardComponent,
-    TaskListComponent,
-    TodoListDetailComponent
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
-    TodoRoutingModule,
+    RouterModule.forRoot(appRoutes),
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false }
-  ),
-
+    )
   ],
-  providers: [ YoutubePlayerService, TodoListService ],
+  providers: [ YoutubePlayerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

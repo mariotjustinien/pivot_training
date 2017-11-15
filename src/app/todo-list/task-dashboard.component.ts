@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {TodoListService} from '../todo-list.service';
-import {Todo} from '../todo';
+import {TodoListService} from './todo-list.service';
+import {Todo} from './todo';
 
 @Component({
   selector: 'app-task-dashboard',
@@ -8,13 +8,11 @@ import {Todo} from '../todo';
   styleUrls: ['./task-dashboard.component.css']
 })
 export class TaskDashboardComponent implements OnInit {
-  todolist: Todo[] ;
+  todolist: Todo[] = [];
   constructor (private todolistService: TodoListService) { }
 
   ngOnInit(): void {
-    this.getTodoList();
-  }
-  getTodoList(): void {
-   this.todolistService.getTodoList().subscribe(todolist => this.todolist = todolist.slice(1.2));
+    this.todolistService.getTodoList().then(todolist => this.todolist = todolist.slice(1.5));
   }
 }
+
