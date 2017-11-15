@@ -1,17 +1,17 @@
 import { Component , Input, OnInit} from '@angular/core';
-import { Todo } from './todo';
+import { Todo } from '../todo';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
-import {TodoListService} from './todo-list.service';
+import {TodoListService} from '../todo-list.service';
 import 'rxjs/add/operator/switchMap';
-
-
 
 @Component({
   selector: 'app-todo-list-detail',
-  templateUrl: './todo-list-detail.component.html'
+  templateUrl: './todo-list-detail.component.html',
+  styleUrls: ['./todo-list-detail.component.css']
 })
 export class TodoListDetailComponent implements OnInit {
+
   @Input() todo: Todo;
 
   constructor (
@@ -21,9 +21,9 @@ export class TodoListDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap
-    .switchMap((params: ParamMap) => this.todolistService.getTodo(+params.get('id')))
-    .subscribe(todo => this.todo = todo);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.todolistService.getTodo(id)
+      .subscribe(todo => this.todo = todo);
     }
 
   goBack(): void {
@@ -32,16 +32,7 @@ export class TodoListDetailComponent implements OnInit {
 
   save(): void {
     this.todolistService.update(this.todo)
-      .then(() => this.goBack());
-  }
-
-  deleteTodo(todo: Todo): void {
-    // this.todoListService
-    //   .delete(todo.id)
-    //   .then(() => {
-    //     this.todolist = this.todolist.filter(h => h !== todo);
-    //     if (this.selectTodo === todo) { this.selectTodo = null; }
-    //   });
+      .subscribe(() => this.goBack());
   }
 
 }
