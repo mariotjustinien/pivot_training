@@ -50,6 +50,7 @@ button:disabled {
   padding-left: 20px;
   -moz-border-radius: 20px;
   margin-left: 15%;
+  margin-top: 3em;
 }
 h2{
   color:white;
