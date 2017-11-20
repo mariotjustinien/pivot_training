@@ -28,7 +28,7 @@ export class TaskListComponent implements OnInit {
      this.todoListService.getTodoList().subscribe(todolist => this.todolist = todolist);
    }
    gotoDetail(): void {
-     this.router.navigate(['/DetailTask', this.selectTodo.id]);
+     this.router.navigate(['/todolist/DetailTask', this.selectTodo.id]);
    }
    add(name,place,time: string ) {
      name = name.trim();
