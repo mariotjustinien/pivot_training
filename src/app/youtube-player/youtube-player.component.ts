@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input } from '@angular/core';
 import {Video} from './video';
 import {YoutubePlayerService} from './youtube-player.service';
@@ -49,5 +50,4 @@ deleteVideo(video: Video): void {
   this.videos = this.videos.filter(h => h !== video);
   this.youtubeplayerservice.deleteVideo(video).subscribe;
 }
-
 }
