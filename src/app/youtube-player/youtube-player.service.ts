@@ -50,7 +50,7 @@ export class YoutubePlayerService {
 	  return this.http.put(this.videosUrl, video, httpOptions);
 	}
 
-	deleteVideo (video: Video | number): Observable<Video>{
+	deleteVideo (video: Video | number): Observable<Video> {
 		const id = typeof video === 'number' ? video : video.id;
 		const url = `${this.videosUrl}/${id}`;
 		return this.http.delete<Video>(url, httpOptions);
