@@ -1,7 +1,8 @@
 
 h2{
   color: #ff0000;
-  margin-left: 5em;
+  margin-left: 8em;
+  margin-top: 2em;
 }
 h3{
   margin-left: 3em;
@@ -79,6 +80,7 @@ input {
 
 .container::-webkit-scrollbar {
   width: 1em;
+
 }
 
 .container::-webkit-scrollbar-track {
@@ -91,5 +93,6 @@ input {
 }
 .container{
   margin-left: 15%;
+  margin-top: 1.5em;
 
 }

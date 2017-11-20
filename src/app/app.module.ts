@@ -9,7 +9,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 // routing
-import { TodoRoutingModule } from './todo-list/todo-routing.module';
 import { AppRoutingModule } from './app.routing';
 
 //services
@@ -45,7 +44,6 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    TodoRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false }
