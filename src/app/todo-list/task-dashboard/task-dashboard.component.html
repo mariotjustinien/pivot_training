@@ -1,6 +1,6 @@
 <h3> My urgent task today:</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let todo of todolist " [routerLink]="['/DetailTask', todo.id]" class= "col-1-4">
+  <a *ngFor="let todo of todolist " routerLink="/DetailTask/{{todo.id}}" class= "col-1-4">
     <div class=" module todo ">
       <h4> {{todo.name}} ---> {{todo.time}}</h4>
     </div>

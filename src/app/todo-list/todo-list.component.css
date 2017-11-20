@@ -1,33 +1,4 @@
 
-/*nav {*/
-  /*background-color: #900C3F ;*/
-  /*list-style-type: none;*/
-  /*margin: 0;*/
-  /*padding: 0;*/
-  /*width: 200px;*/
-  /*overflow: hidden;*/
-  /*float: right;*/
-/*}*/
-/*nav a {*/
-  /*padding: 10px 10px;*/
-  /*text-decoration: none;*/
-  /*margin-top: 10px;*/
-  /*display: block;*/
-  /*background-color: #900C3F  ;*/
-  /*!*border-radius: 4px;*!*/
-  /*overflow: hidden;*/
-/*}*/
-/*nav a:visited, a:link {*/
-  /*color: #607D8B;*/
-/*}*/
-/*nav a:hover {*/
-  /*color: #039be5;*/
-  /*background-color: #CFD8DC;*/
-/*}*/
-/*nav a.active {*/
-  /*color: #039be5;*/
-/*}*/
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -39,10 +10,6 @@ ul {
   top: 0;
   width: 80%;
 }
-/*li a {*/
-  /*display: inline;*/
-  /*color: #000010;*/
-/*}*/
 
 li {
   float: left;
@@ -50,8 +17,6 @@ li {
 
 a {
   display: block;
-  /*padding: 8px;*/
-  /*background-color: #900C3F  ;*/
   text-decoration: none;
   color: white;
   text-align: center;
