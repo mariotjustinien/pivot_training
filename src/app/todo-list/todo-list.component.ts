@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
-  // providers: [ TodoListService]
 
 })
 

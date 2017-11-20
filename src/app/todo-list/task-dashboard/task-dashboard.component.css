@@ -5,7 +5,7 @@ h3 {
    margin-top: 3em;
    text-decoration: blink;
  }
-/* DashboardComponent's private CSS styles */
+
 [class*='col-'] {
    float: left;
 
@@ -49,22 +49,3 @@ a {
 .grid-pad {
  padding: 10px 0;
 }
-/*
-!*.grid-pad > [class*='col-']:last-of-type {*!
-!*padding-right: 50px;*!
-!*}*!
-!*@media (max-width: 600px) {*!
-!*.module {*!
-!*font-size: 10px;*!
-!*max-height: 75px; }*!
-!*}*!
-!*@media (max-width: 1024px) {*!
-!*.grid {*!
-!*margin: 0;*!
-!*}*!
-!*.module {*!
-!*min-width: 60px;*!
-!*}*!
-!*}*!
-*/
-
