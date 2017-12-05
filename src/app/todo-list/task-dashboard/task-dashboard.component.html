@@ -1,8 +1,18 @@
-<h3> My urgent task today:</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let todo of todolist " routerLink="/todolist/DetailTask/{{todo.id}}" class= "col-1-4">
-    <div class=" module todo ">
-      <h4> {{todo.name}} ---> {{todo.time}}</h4>
-    </div>
-  </a>
-</div>
+
+  <ul class="sidebarservices">
+        <li class="head">My urgent Todo List</li>
+        <li class="content"  *ngFor="let todo of todolist " (click)="openModal(template)"><span>{{todo.name}} ---> {{todo.time}}</span>
+          <ng-template #template>
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-center">Task Detail</h4>
+                    <button type="button" class="modal-title pull-center close" data-dismiss="dialog" data-ng-click="cancel($event)" (click)="modalRef.hide();">
+                          <span aria-hidden="true">&times;</span>
+                          <span class="sr-only">Close</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" align="center">
+                    <app-todo-list-detail [todo]="todo"></app-todo-list-detail>
+                  </div>
+          </ng-template>
+        </li>
+ </ul>
