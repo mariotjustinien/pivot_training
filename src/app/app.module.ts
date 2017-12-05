@@ -5,6 +5,11 @@ import { FormsModule }    from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule }    from '@angular/common/http'; // <-- NgModel lives here
 
+// bootstrap
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
@@ -48,6 +53,9 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false }
   ),
+    NgbModule.forRoot(),
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
 
   ],
   providers: [ YoutubePlayerService, TodoListService ],
