@@ -1,6 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit,TemplateRef} from '@angular/core';
 import {TodoListService} from '../todo-list.service';
 import {Todo} from '../todo';
+
+//import bootstrap
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-task-dashboard',
@@ -9,7 +15,10 @@ import {Todo} from '../todo';
 })
 export class TaskDashboardComponent implements OnInit {
   todolist: Todo[] ;
-  constructor (private todolistService: TodoListService) { }
+  modalRef: BsModalRef;
+  constructor (private todolistService: TodoListService,
+               private modalService: BsModalService
+             ) { }
 
   ngOnInit(): void {
     this.getTodoList();
@@ -17,4 +26,9 @@ export class TaskDashboardComponent implements OnInit {
   getTodoList(): void {
    this.todolistService.getTodoList().subscribe(todolist => this.todolist = todolist.slice(1.2));
   }
+  //fonction pour faire apparaitre le dialogue
+  openModal(template: TemplateRef<any>) {
+  this.modalRef = this.modalService.show(template);
+}
+
 }

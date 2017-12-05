@@ -1,57 +1,69 @@
-<h2>My To Do List</h2>
-<table class="corp">
-  <tr>
-    <td><label>Task name:</label> </td>
-    <td><input #TodoName /><br/></td>
-  </tr>
-  <tr>
-    <td> <label>Address:</label></td>
-    <td>  <input #TodoAdress /><br/></td>
-  </tr>
-  <tr>
-    <td><label>Time:</label></td>
-    <td><input #TodoTiming /><br/></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>
-      <button class="addBtn" (click)="add(TodoName.value,TodoAdress.value,TodoTiming.value); TodoName.value='';TodoAdress.value='';TodoTiming.value=''">
-      Add
-      </button>
-    </td>
-  </tr>
-</table>
 
-<div class="container" style='overflow-y:auto;overflow-x: auto; width:800px;height:400px;'>
-  <div class="jumbotron">
-    <ul class="todo">
-      <li *ngFor="let todo of todolist" [class.selected]="todo === selectTodo" (click)='onSelect(todo)' >
-          <table width="25em">
-              <tr>
-                  <td>
-                    <em><span class="id">{{todo.id}}</span></em>
-                  </td>
-                  <td>
-                    <span class="name">{{todo.name}}</span>
-                  </td>
-                  <td>
-                    <span class="place">{{todo.place}}</span>
-                  </td>
-                  <td>
-                    <span class="time">{{todo.time}}</span>
-                  </td>
-                  <td>
-                    <button class="close"
-                            (click)="deleteTodo(todo); $event.stopPropagation()">x</button>
-                  </td>
-              </tr>
-          </table>
-   </ul>
-<div *ngIf="selectTodo" class="select">
-    <h3>
-      {{ selectTodo.name |uppercase}} is my today task to do
-    </h3>
-  <button style="margin-left: 10em; background:red;" (click)="gotoDetail()"> More Details</button>
-</div>
-  </div>
+<div class="container" >
+    <div class="row">
+      <form role="form" class="col-md-9 go-right">
+  			<h2 style="margin-top:3em">New task??</h2>
+  			<div class="form-group">
+    			<input  name="name" type="text" class="form-control" required #TodoName>
+    			<label for="name">Task name</label>
+  		  </div>
+    		<div class="form-group">
+    			<input  name="adress" type="text" class="form-control" required #TodoAdress>
+    			<label for="phone">Place</label>
+    		</div>
+    		<div class="form-group">
+    			<input  name="adress" type="text" class="form-control" required #TodoTiming>
+    			<label for="message">Time</label>
+    		</div>
+		</form>
+    <button type="button" class="btn btn-success " (click)="add(TodoName.value,TodoAdress.value,TodoTiming.value); TodoName.value='';TodoAdress.value='';TodoTiming.value=''"><span class="mif-checkmark">save</span></button>
+        <div class="" style='overflow-y:auto;overflow-x: auto; width:900px;height:600px;'>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="mif-list2">  </span>  My Todo Lists
+                    <div class="pull-right action-buttons">
+                        <div class="btn-group test" dropdown>
+                          <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle"><span class="caret"></span>
+                            </button>
+                            <ul *dropdownMenu class="dropdown-menu" role="menu">
+                              <li role="menuitem"><span class="mif-pencil"></span>edit</li>
+                              <li class="divider dropdown-divider"></li>
+                              <li role="menuitem"><span class="mif-bin"></span>delete</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item list" *ngFor="let todo of todolist" [class.selected]="todo === selectTodo" (click)='onSelect(todo)'>
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <label for="checkbox">
+                                  <em><span class="id">{{todo.id}}</span></em>
+                                    <span class="name">{{todo.name}}</span>
+                                </label>
+                            </div>
+                            <div class="pull-right action-buttons box">
+                                <button class="button" (click)="openModal(template)"><span class="icon mif-pencil "></span></button>
+                                <button class="button" (click)="deleteTodo(todo)"><span class="mif-bin"></span></button>
+                            </div>
+                            <ng-template #template>
+                                    <div class="modal-header">
+                                      <h4 class="modal-title pull-center">Task Detail/edit</h4>
+                                      <button type="button" class="modal-title pull-center close" data-dismiss="dialog" (click)="modalRef.hide();"data-ng-click="cancel($event)">
+                                            <span aria-hidden="true">&times;</span>
+                                            <span class="sr-only">Close</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body" align="center">
+                                      <app-todo-list-detail [todo]="selectTodo"></app-todo-list-detail>
+                                    </div>
+                                  </ng-template>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>

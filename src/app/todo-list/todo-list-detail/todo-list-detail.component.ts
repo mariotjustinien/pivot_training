@@ -27,7 +27,7 @@ export class TodoListDetailComponent implements OnInit {
     }
 
   goBack(): void {
-    this.location.back();
+    //this.location.back();
   }
 
   save(): void {
