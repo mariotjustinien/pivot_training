@@ -37,11 +37,11 @@
 
 </div>
 
-<div class="cell padding20 colspan3 bg-white">
+<div class="cell padding15 colspan3 bg-white">
   <h3 class="text-dark">Video playlist</h3>
   <hr class="thin bg-grayLighter">
-<div class="" style="overflow-y: scroll; height:720px; cursor:pointer">
-   <ul class="list-group">
+<div class="" style="overflow-y: scroll; height:720px;width:430px;  cursor:pointer">
+   <ul class="list-group" style="width:500px;">
     <li class="list-group-item list" *ngFor="let video of videos;" [class.selected]="video === selectedVideo" (click)="onSelect(video)">
       <div class="mdl-card__title mdl-card--expand" [ngStyle]="{'background': '#000 url(' + video.thumbnailUrl + ') center center no-repeat', 'background-size': '125%'}">
         <div class="video-info-block">
