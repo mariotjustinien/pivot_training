@@ -4,8 +4,7 @@ import {YoutubePlayerService} from '../youtube-player.service';
 
 @Component({
   selector: 'video-detail',
-  templateUrl: './video-detail.component.html',
-  styleUrls:['../youtube-player.component.css']
+  templateUrl: './video-detail.component.html'
 })
 export class VideoDetailComponent implements OnInit{
 @Input() video: Video;

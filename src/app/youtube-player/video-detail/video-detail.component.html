@@ -1,13 +1,24 @@
-<div *ngIf="video">
-  <h3>Video Detail/edit</h3>
-  <div>
-    <label><h4>Title:</h4>
-      <input class="VideoDetail" [(ngModel)]="video.videoTitle" placeholder="name"/>
-    </label>
-    <label><h4>Url:</h4>
-      <input class="VideoDetail" [(ngModel)]="video.url" placeholder="name"/>
-    </label>
-    <br>
-    <button class="save" (click)="save()">save</button>
-  </div>
+<div *ngIf="video" class="grid">
+
+    <div class="flex-just-sb" >
+      <div class="cell ">
+        <h5>Video Title</h5>
+      </div>
+      <div class="cell input-control text full-size">
+        <input type="text" required [(ngModel)]="video.videoTitle" />
+      </div>
+    </div>
+
+    <hr class="thin bg-grayLighter">
+
+    <div class="flex-just-sb" >
+      <div class="cell ">
+        <h5 >Video url</h5>
+      </div>
+      <div class="cell input-control text full-size">
+        <input type="text" required [(ngModel)]="video.url" />
+      </div>
+    </div>
+
+    <!--<button class="save" (click)="save()">save</button>-->
 </div>

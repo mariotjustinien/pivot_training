@@ -1,24 +1,40 @@
-<table class="content" width="1000" border="0">
-  <tr>
-    <td align="left"
-        valign="top" width="212" height="232"><div class="container">
-    <div class="jumbotron">
-         <h1>Menu</h1>
-        <em>Feel free to use Bootstrap or anything else to improve the rendering</em>
+<body>
 
-    </div>
-    <ul>
-        <li routerLink="/player" style="cursor:pointer">Player</li>
-        <li routerLink="/todolist" style="cursor:pointer">Todo List</li>
-        <li routerLink="/calculator" style="cursor:pointer">Calculator</li>
-    </ul>
-</div></td>
-    <td width="781" align="left"
-        valign="top" rowspan="2">
-        <router-outlet></router-outlet>
-    </td>
-  </tr>
-  <tr>
-    <td height="200">&nbsp;</td>
-  </tr>
-</table>
+<div class="page-content">
+<div class="flex-grid no-responsive-future" style="height: 100%;">
+    <div class="row cells5">
+      <div class="cell size-x200" style="height: 100%">
+          <div dropdown>
+              <ul class="sidebar2 green" >
+                <li routerLink="/player" style="cursor:pointer" class="stick bg-green">
+                  <a>
+                    <span class="mif-youtube-play icon"></span>
+                    <span class="title">Player</span>
+                  </a>
+                </li>
+
+                <li  style="cursor:pointer" class="stick bg-red">
+                  <a dropdownToggle class="dropdown-toggle" ><span class="mif-tree icon"></span>Todo List</a>
+                  <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li role="menuitem"><a routerLink="/todolist/TaskDashboard"><span class="mif-apps icon"></span>Dash board</a></li>
+                    <li role="menuitem"><a routerLink="/todolist/TaskList"><span class="mif-apps icon"></span>Task list</a></li>
+                  </ul>
+                </li>
+
+                <li routerLink="/calculator" style="cursor:pointer" class="stick bg-blue">
+                  <a>
+                    <span class="mif-calculator icon"></span>
+                    <span class="title">Calculator</span>
+                  </a>
+                </li>
+              </ul>
+          </div>
+        </div>
+
+  <div class="cell auto-size padding20 bg-white">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+</div>
+</div>
+</body>

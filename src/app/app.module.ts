@@ -4,6 +4,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule }    from '@angular/common/http'; // <-- NgModel lives here
+import { LoadingModule , ANIMATION_TYPES } from 'ngx-loading';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
@@ -28,6 +29,10 @@ import { TaskDashboardComponent } from './todo-list/task-dashboard/task-dashboar
 import { TaskListComponent } from './todo-list/task-list/task-list.component';
 import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-detail.component';
 
+// bootstrap
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +53,16 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false }
   ),
-
+    LoadingModule.forRoot({
+        animationType: ANIMATION_TYPES.rectangleBounce,
+        backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+        backdropBorderRadius: '4px',
+        primaryColour: 'grey',
+        secondaryColour: 'red',
+        tertiaryColour: 'green'
+    }),
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [ YoutubePlayerService, TodoListService ],
 
