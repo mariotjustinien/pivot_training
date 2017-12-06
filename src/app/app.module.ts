@@ -23,7 +23,6 @@ import { TodoListService } from './todo-list/todo-list.service';
 
 // components
 import { AppComponent } from './app.component';
-
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
 import { VideoDetailComponent } from './youtube-player/video-detail/video-detail.component';
@@ -63,9 +62,7 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    ModalModule.forRoot(),
-    BsDropdownModule.forRoot()
-
+    ModalModule.forRoot()
   ],
   providers: [ YoutubePlayerService, TodoListService ],
 

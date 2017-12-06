@@ -3,8 +3,7 @@
       <div align="center">
         <h2>Angular Youtube player.</h2>
       </div>
-
-    </div>
+</div>
 
 <div class="grid">
 
@@ -37,24 +36,36 @@
 
 </div>
 
-<div class="cell padding15 colspan3 bg-white">
+<div class="cell padding20 colspan3 bg-white">
   <h3 class="text-dark">Video playlist</h3>
   <hr class="thin bg-grayLighter">
 <div class="" style="overflow-y: scroll; height:720px;width:430px;  cursor:pointer">
-   <ul class="list-group" style="width:500px;">
+   <ul class="list-group" style="height:30px;width:500px;">
     <li class="list-group-item list" *ngFor="let video of videos;" [class.selected]="video === selectedVideo" (click)="onSelect(video)">
       <div class="mdl-card__title mdl-card--expand" [ngStyle]="{'background': '#000 url(' + video.thumbnailUrl + ') center center no-repeat', 'background-size': '125%'}">
         <div class="video-info-block">
         </div>
-          <div style= "height:200px;width:200px; cursor:pointer">
+          <div style= "height:10px;width:200px; cursor:pointer">
             <h6 class="text-light">{{video.videoTitle}}</h6>
           </div>
-        <div class="video-play-button box" align="center">
-          <button class="cycle-button success mini-button" (click)="showVideo(video.url)"><span class="icon mif-play "></span>
+          <div class="box" style= "margin-bottom:5em;margin-top:5em; cursor:pointer" align="center">
+            <a class="play-btn" (click)="showVideo(video.url)"></a>
+          </div>
+        <div dropdown class="video-play-button box" align="right">
+          <button dropdownToggle type="button" class="cycle-button dropdown-toggle">
+            : <span class="caret"></span>
           </button>
-          <button class="cycle-button warning mini-button" (click)="openModal(template)"><span class="icon mif-pencil "></span>
+
+          <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+            <li role="menuitem"><a class="dropdown-item" (click)="openModal(template)">Edit</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="deleteVideo(video)">Delete</a></li>
+          </ul>
+
+          <!-- <button class="cycle-button warning mini-button" (click)="openModal(template)"><span class="icon mif-pencil "></span>
           </button>
           <button class="cycle-button danger mini-button" (click)="deleteVideo(video)"><a class="trash"><span class="icon mif-cross"></span></a></button>
+        -->
         </div>
       </div>
 
@@ -66,7 +77,7 @@
           <div class="modal-body">
             <video-detail [video]="selectedVideo"></video-detail>
           </div>
-          <div class="modal-foot">
+          <div class="modal-foot" align="center" style="margin-bottom:2em;">
             <button type="button" class="button success" (click)="modalRef.hide()">
                 <span class="mif-checkmark"></span>Save
             </button>
