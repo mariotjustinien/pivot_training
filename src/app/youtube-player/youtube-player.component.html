@@ -9,7 +9,7 @@
 
 <div class="row cells2">
 <div class="cell auto-size padding20 bg-white">
-  <h3 class="text-dark">Video form<!-- <span class="mif-youtube mif-3x fg-red place-left"></span> --></h3>
+  <h3 class="text-dark">Video form</h3>
   <hr class="thin bg-grayLighter">
 
   <form role="form" class="col-md-10 go-right">
@@ -52,8 +52,7 @@
             <a class="play-btn" (click)="showVideo(video.url)"></a>
           </div>
         <div dropdown class="video-play-button box" align="right">
-          <button dropdownToggle type="button" class="cycle-button dropdown-toggle">
-            : <span class="caret"></span>
+          <button dropdownToggle type="button" class="cycle-button mini-button dropdown-toggle"><span class="caret"></span>
           </button>
 
           <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
@@ -61,11 +60,6 @@
             <li class="divider dropdown-divider"></li>
             <li role="menuitem"><a class="dropdown-item" (click)="deleteVideo(video)">Delete</a></li>
           </ul>
-
-          <!-- <button class="cycle-button warning mini-button" (click)="openModal(template)"><span class="icon mif-pencil "></span>
-          </button>
-          <button class="cycle-button danger mini-button" (click)="deleteVideo(video)"><a class="trash"><span class="icon mif-cross"></span></a></button>
-        -->
         </div>
       </div>
 
