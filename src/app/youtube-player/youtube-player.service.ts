@@ -21,7 +21,7 @@ export class YoutubePlayerService {
 	       if ((typeof _window.YT !== 'undefined') && _window.YT && _window.YT.Player) {
 	         this.yt_player = new _window.YT.Player('ytb-player', {
 	           width: '1150',
-	           height: '600',
+	           height: '565',
 						 //videoId: videoId,
 	           playerVars: {
 	             iv_load_policy: '3',
