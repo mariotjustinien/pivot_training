@@ -62,8 +62,7 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    ModalModule.forRoot(),
-
+    ModalModule.forRoot()
   ],
   providers: [ YoutubePlayerService, TodoListService ],
 

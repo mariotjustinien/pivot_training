@@ -60,6 +60,11 @@
                                     <div class="modal-body" align="center">
                                       <app-todo-list-detail [todo]="selectTodo"></app-todo-list-detail>
                                     </div>
+                                    <div class="modal-foot" align="center" style="margin-bottom:2em;">
+                                      <button type="button" class="button success" (click)="modalRef.hide()">
+                                          <span class="mif-checkmark"></span>Save
+                                      </button>
+                                  </div>
                                   </ng-template>
                         </li>
                     </ul>
