@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 import { Video } from './video';
 
@@ -11,10 +13,10 @@ const httpOptions = {headers : new HttpHeaders({'Content-Type': 'application/jso
 @Injectable()
 export class YoutubePlayerService {
 	public yt_player;
-	private videosUrl = 'api/videos';  // URL to web api
+	private videosUrl = 'http://localhost:8000/api/';  // URL to web api
 	private currentVideoId: string;
 
-	 constructor(private http: HttpClient) { }
+	 constructor(private http: HttpClient,private _http: Http) { }
 
 	 createPlayer(): void {
 	     let interval = setInterval(() => {
@@ -38,22 +40,35 @@ export class YoutubePlayerService {
 	     this.currentVideoId = videoId;
 	   }
 
-  getVideos(): Observable<Video[]> {
-    return this.http.get<Video[]>(this.videosUrl);
+	stopVideo(){
+		this.yt_player.stopVideo();
+	}
+
+  getVideos() {
+    return this._http.get(this.videosUrl).map((res)=>res.json());
   }
 
-	addVideo (video: Video): Observable<Video>{
-		return this.http.post<Video>(this.videosUrl, video, httpOptions);
+	getVideosByHour() {
+    return this._http.get(this.videosUrl+'show_hour').map((res)=>res.json());
+  }
+
+	addVideo (videos: Video ){
+    return this._http.post(this.videosUrl+'create', JSON.stringify(videos));
 	}
 
-	updateVideo (video: Video): Observable<any>{
-	  return this.http.put(this.videosUrl, video, httpOptions);
+	updateVideo (video: Video, id){
+	  return this._http.put(this.videosUrl+'update/'+id, JSON.stringify(video));
 	}
 
-	deleteVideo (video: Video | number): Observable<Video> {
+	private handelError(error: Response){
+
+    return Observable.throw(error.json() || 'server error');
+
+  }
+
+	deleteVideo (video: Video | number) {
 		const id = typeof video === 'number' ? video : video.id;
-		const url = `${this.videosUrl}/${id}`;
-		return this.http.delete<Video>(url, httpOptions);
+		return this._http.delete(this.videosUrl+'delete/'+id);
 	}
 
 }

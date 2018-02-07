@@ -4,7 +4,9 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule }    from '@angular/common/http'; // <-- NgModel lives here
+import {HttpModule} from '@angular/http';
 import { LoadingModule , ANIMATION_TYPES } from 'ngx-loading';
+import { DatePipe } from '@angular/common';
 
 // bootstrap
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -40,7 +42,7 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     CalculatorComponent,
     TaskDashboardComponent,
     TaskListComponent,
-    TodoListDetailComponent
+    TodoListDetailComponent,
 
   ],
   imports: [
@@ -48,6 +50,7 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    HttpModule,
     HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false }
   ),
@@ -64,7 +67,7 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     NgbModule.forRoot(),
     ModalModule.forRoot()
   ],
-  providers: [ YoutubePlayerService, TodoListService ],
+  providers: [ HttpClientModule, YoutubePlayerService, TodoListService, DatePipe ],
 
   bootstrap: [AppComponent]
 })

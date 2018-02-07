@@ -1,0 +1,29 @@
+pvt_video_homepage:
+    path:     /
+    defaults:
+        _controller: PvtVideoBundle:HistoryVideo:index 
+
+show_video:
+    path:    /show/{id}
+    defaults:
+        _controller: PvtVideoBundle:HistoryVideo:show
+        
+add_video:
+    path:    /create
+    defaults:
+        _controller: PvtVideoBundle:HistoryVideo:create
+        
+update_video:
+    path:    /update/{id}
+    defaults:
+        _controller: PvtVideoBundle:HistoryVideo:update
+        
+show_video_hour:
+    path:    /show_hour
+    defaults:
+        _controller: PvtVideoBundle:HistoryVideo:getbyHeure
+        
+delete_video:
+    path:    /delete/{id}
+    defaults:
+        _controller: PvtVideoBundle:HistoryVideo:delete

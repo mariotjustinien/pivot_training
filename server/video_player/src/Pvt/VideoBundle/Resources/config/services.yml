@@ -1,0 +1,7 @@
+services:
+#    pvt_video.example:
+#        class: Pvt\VideoBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+     pvt_video.historyvideo:
+         class: Pvt\VideoBundle\Services\HistoryVideoService
+         arguments: [ "@doctrine.orm.entity_manager" , "@service_container" ]

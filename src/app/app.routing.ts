@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 // components
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
+import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';;
 import { CalculatorComponent } from './calculator/calculator.component';
 import { TaskDashboardComponent } from './todo-list/task-dashboard/task-dashboard.component';
 import { TaskListComponent } from './todo-list/task-list/task-list.component';

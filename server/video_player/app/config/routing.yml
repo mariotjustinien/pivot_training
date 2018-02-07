@@ -1,0 +1,5 @@
+pvt_video:
+    resource: "@PvtVideoBundle/Resources/config/routing.yml"
+    prefix:   /api
+
+        

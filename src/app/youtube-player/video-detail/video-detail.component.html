@@ -1,14 +1,12 @@
 <div *ngIf="video" class="grid">
-
+<img src="http://img.youtube.com/vi/{{video.url|slice : -11}}/hqdefault.jpg" style="height:100px">
+<p>
     <div class="flex-just-sb" >
       <div class="cell ">
-        <h5>Video Title</h5>
-      </div>
-      <div class="cell input-control text full-size">
-        <input type="text" required [(ngModel)]="video.videoTitle" />
+        <h5>Heure de dernier view:</h5> <h4>{{video.heure}}</h4>
       </div>
     </div>
-
+        <input type="hidden" required [(ngModel)]="video.id" #id />
     <hr class="thin bg-grayLighter">
 
     <div class="flex-just-sb" >
@@ -16,9 +14,11 @@
         <h5 >Video url</h5>
       </div>
       <div class="cell input-control text full-size">
-        <input type="text" required [(ngModel)]="video.url" />
+        <input type="text" required [(ngModel)]="video.url" #url />
       </div>
     </div>
-
-    <!--<button class="save" (click)="save()">save</button>-->
+  <div class="modal-foot" align="center" style="margin-bottom:2em;">
+    <button class="save" (click)="save(url.value,id.value)"></button>
+    <span class="mif-checkmark"></span>Save
+  </div>
 </div>
