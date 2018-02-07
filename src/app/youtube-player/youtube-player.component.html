@@ -26,15 +26,10 @@
     </div>
   </form>
 
-  <div *ngFor="let error of errors" class="alert alert-danger">
-    <div>There is an error in :{{error.field}} field</div>
-    <div>{{error.message}}</div>
-  </div>
-
   <div align="center">
       <div >
         <div id="ytb-player">
-          <!-- <ngx-loading [show]="loading" [config]="{backdropBorderRadius: '14px' }"></ngx-loading> -->
+          <ngx-loading [show]="loading" [config]="{backdropBorderRadius: '14px' }"></ngx-loading>
         </div>
       </div>
   </div>
