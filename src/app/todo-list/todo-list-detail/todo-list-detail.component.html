@@ -1,27 +1,22 @@
-<div  class="detail" *ngIf="todo">
-  <h2> {{todo.name |uppercase}} task details :</h2>
-  <div>
-    <label>id: </label><span class="id">{{todo.id}}</span>
-  </div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="todo.name" placeholder="name"/>
-  </div>
-  <div>
-    <label>place:</label>
-    <input [(ngModel)]="todo.place" placeholder="place">
-  </div>
-  <div>
-    <label>time:</label>
-    <input [(ngModel)]="todo.time" placeholder="time">
-  </div>
+<div  class="row" *ngIf="todo">
+  <div class="titre"><h5>{{todo.name}} details :</h5></div>
+  <form role="form" class="col-md-9 go-right">
+    <div class="form-group">
+      <input  name="id" type="text"  [(ngModel)]="todo.id" disabled>
+      <!-- <label for="id">id</label> -->
+    </div>
+    <div class="form-group">
+      <input  name="name" type="text"  [(ngModel)]="todo.name">
+      <label for="name">name</label>
+    </div>
+    <div class="form-group">
+      <input  name="place" type="text"  [(ngModel)]="todo.place">
+      <label for="place">place</label>
+    </div>
+    <div class="form-group">
+      <input  name="time" type="text"  [(ngModel)]="todo.time">
+      <label for="time">time</label>
+    </div>
 
-  <div>
-    <button class="back" (click)="goBack()"> Back</button>
-    <button (click)="save()">Save</button>
-    <button class="del" (click)="deleteTodo()">Delete</button>
-  </div>
-
-
-
+</form>
 </div>

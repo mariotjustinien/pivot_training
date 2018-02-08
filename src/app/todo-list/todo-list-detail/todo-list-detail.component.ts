@@ -13,7 +13,7 @@ import 'rxjs/add/operator/switchMap';
 export class TodoListDetailComponent implements OnInit {
 
   @Input() todo: Todo;
-
+  Todo : Todo[];
   constructor (
     private todolistService: TodoListService,
     private route: ActivatedRoute,
@@ -27,7 +27,7 @@ export class TodoListDetailComponent implements OnInit {
     }
 
   goBack(): void {
-    this.location.back();
+    //this.location.back();
   }
 
   save(): void {

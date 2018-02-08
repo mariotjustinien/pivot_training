@@ -16,7 +16,7 @@ export class TodoListService {
 
   getTodoList(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.todolistURl);
-  } // stub
+  }
 
   getTodo(id: number): Observable<Todo> {
     const url = `${this.todolistURl}/${id}`;

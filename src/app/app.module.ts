@@ -4,21 +4,28 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule }    from '@angular/common/http'; // <-- NgModel lives here
+import {HttpModule} from '@angular/http';
+import { LoadingModule , ANIMATION_TYPES } from 'ngx-loading';
+import { DatePipe } from '@angular/common';
+
+// bootstrap
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 // routing
-import { TodoRoutingModule } from './todo-list/todo-routing.module';
 import { AppRoutingModule } from './app.routing';
 
 //services
 import {YoutubePlayerService} from './youtube-player/youtube-player.service';
 import { TodoListService } from './todo-list/todo-list.service';
+
 // components
 import { AppComponent } from './app.component';
-
 import { TodoListComponent } from './todo-list/todo-list.component';
-
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
 import { VideoDetailComponent } from './youtube-player/video-detail/video-detail.component';
 import { CalculatorComponent } from './calculator/calculator.component';
@@ -35,20 +42,33 @@ import { TodoListDetailComponent } from './todo-list/todo-list-detail/todo-list-
     CalculatorComponent,
     TaskDashboardComponent,
     TaskListComponent,
-    TodoListDetailComponent
+    TodoListDetailComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    TodoRoutingModule,
     HttpClientModule,
+    HttpModule,
     HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false }
   ),
-
+    LoadingModule.forRoot({
+        animationType: ANIMATION_TYPES.rectangleBounce,
+        backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+        backdropBorderRadius: '4px',
+        primaryColour: 'grey',
+        secondaryColour: 'red',
+        tertiaryColour: 'green'
+    }),
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot(),
+    NgbModule.forRoot(),
+    ModalModule.forRoot()
   ],
-  providers: [ YoutubePlayerService, TodoListService ],
+  providers: [ HttpClientModule, YoutubePlayerService, TodoListService, DatePipe ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

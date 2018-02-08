@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/video_player/src/Pvt/VideoBundle/Services/HistoryVideoService.php</file>
+            <file>file:/var/www/video_player/app/config/routing.yml</file>
+            <file>file:/var/www/video_player/src/Pvt/VideoBundle/Resources/config/routing.yml</file>
+            <file>file:/var/www/video_player/src/Pvt/VideoBundle/DataFixtures/ORM/LoadVideos.php</file>
+            <file>file:/var/www/video_player/src/Pvt/VideoBundle/Repository/VideoRepository.php</file>
+            <file>file:/var/www/video_player/src/Pvt/VideoBundle/Resources/config/services.yml</file>
+            <file>file:/var/www/video_player/app/config/parameters.yml</file>
+            <file>file:/var/www/video_player/src/Pvt/VideoBundle/Controller/HistoryVideoController.php</file>
+            <file>file:/var/www/video_player/src/Pvt/VideoBundle/Entity/Video.php</file>
+            <file>file:/var/www/video_player/app/config/config.yml</file>
+            <file>file:/var/www/video_player/composer.json</file>
+        </group>
+    </open-files>
+</project-private>
